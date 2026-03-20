@@ -1,0 +1,57 @@
+syms x y
+a1=1;b1=0;r1=1;
+a2=-1,b2=0,r2=1; 
+
+
+[x,y]=solve((x-a1)^2+(y-b1)^2-r1^2,(x-a2)^2+(y-b2)^2-r2^2);
+
+% 圆1的半径和中心点坐标
+r1 = 3;
+center1=[10,0];
+% 圆2的半径和中心点坐标
+r2 = 4;
+center2 =[2,2];
+%计算两个圆的交点坐标
+[x,y]=circlesIntersections(r1,r2,center1,center2);
+% 输出交点坐标
+fprintf('两个圆的交点坐标:\n');
+for i = 1:length(x)
+    fprintf('(%f，%f)\n',x(i),y(i));
+end
+
+
+eps = 1e-8
+
+
+# 精度处理
+# 返回x经过eps处理的符号，负数返回-1，正数返回1，x的绝对值如果足够小，就返回0。
+def sgn(x):
+    if x < -eps:
+        return -1
+    elif x > eps:
+        return 1
+    else:
+        return 0
+
+% # 计算两个圆的交点
+function cross_points_of_two_circles(x1, y1, r1, x2, y2, r2)
+    dx = x2 - x1
+    dy = x2 - x1, y2 - y1
+    dis2 = dx ** 2 + dy ** 2
+
+    # 两个圆相离或包含
+    if dis2 > (r1 + r2) ** 2 or dis2 < (r1 - r2) ** 2:
+        return []
+    # 计算两个圆心的连线与x轴的角度t
+    t = math.atan2(dy, dx)
+    # 计算两个圆心的连线与圆心与交点之间的夹角a
+    a = math.acos((r1 * r1 - r2 * r2 + dis2) / (2 * r1 * math.sqrt(dis2)))
+
+    # 计算交点
+    x3, y3 = x1 + r1 * math.cos(t + a), y1 + r1 * math.sin(t + a)
+    x4, y4 = x1 + r1 * math.cos(t - a), y1 + r1 * math.sin(t - a)
+
+    if sgn(a) == 0:  # 两个圆相切，返回1个点
+        return [x3, y3]
+    else:  # 两个圆相交，返回2个点
+        return [x3, y3, x4, y4]
