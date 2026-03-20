@@ -70,13 +70,6 @@ To learn cooperative capture policies, the paper formulates the task as a **Dece
 
 A decoder-only Transformer prediction network is used to model the evader’s future trajectory from historical state sequences. By incorporating predicted future information into decision-making, pursuers can act more proactively and improve encirclement and capture performance in highly dynamic scenarios.
 
-## Results
-
-Simulation results in the paper show that the proposed geometric formulation and learning-based strategy can successfully achieve cooperative encirclement against a superior evader under a variety of evasion behaviors. The results validate both:
-
-- the effectiveness of the **QAC-based occupied-angle analysis**, and
-- the practical performance of the **MADRL + Transformer prediction** framework. 
-
 
 
 ## Citation
