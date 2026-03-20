@@ -77,17 +77,16 @@ Simulation results in the paper show that the proposed geometric formulation and
 - the effectiveness of the **QAC-based occupied-angle analysis**, and
 - the practical performance of the **MADRL + Transformer prediction** framework. :contentReference[oaicite:13]{index=13} :contentReference[oaicite:14]{index=14}
 
-## Repository Structure
 
-A possible project structure is as follows:
 
-```text
-.
-├── envs/                 # pursuit-evasion simulation environments
-├── geometry/             # QAC generation and occupied-angle computation
-├── models/               # actor, critic, and prediction networks
-├── algorithms/           # MADRL training and evaluation
-├── scripts/              # train / test / visualization scripts
-├── configs/              # experiment configurations
-├── results/              # logs, checkpoints, and figures
-└── README.md
+## Citation
+
+If you find this repository useful, please cite the corresponding paper:
+
+@article{li2025second,
+  title={Second-Order Cooperative Pursuit-Evasion Games with One Superior Evader},
+  author={Li, Dongyu and Pan, Biyue and Hu, Qinglei and Liu, Hanyu and Ge, Shuzhi Sam},
+  journal={Authorea Preprints},
+  year={2025},
+  publisher={Authorea}
+}
